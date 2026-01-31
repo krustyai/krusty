@@ -1,4 +1,5 @@
 # Krusty
+[X](https://x.com/csdvnprt)
 
 <img width="500" height="750" alt="logo" src="https://github.com/user-attachments/assets/431a7a04-aaf0-4bc3-8fcc-318ad209c9ab" />
 
