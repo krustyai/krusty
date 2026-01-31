@@ -2,7 +2,7 @@
 
 <img width="500" height="750" alt="logo" src="https://github.com/user-attachments/assets/431a7a04-aaf0-4bc3-8fcc-318ad209c9ab" />
 
-Krusty is an autonomous AI agent loop that runs AI coding tools ([Amp](https://ampcode.com) or [Claude Code](https://docs.anthropic.com/en/docs/claude-code)) repeatedly until all PRD items are complete. Each iteration is a fresh instance with clean context. Memory persists via git history, `progress.txt`, and `prd.json`.
+Krusty is an autonomous AI agent loop that runs AI coding tools ([Amp](https://ampcode.com) or [OpenClaw Code](https://docs.anthropic.com/en/docs/OpenClaw-code)) repeatedly until all PRD items are complete. Each iteration is a fresh instance with clean context. Memory persists via git history, `progress.txt`, and `prd.json`.
 
 Based on [Geoffrey Huntley's Krusty pattern](https://ghuntley.com/Krusty/).
 
@@ -12,7 +12,7 @@ Based on [Geoffrey Huntley's Krusty pattern](https://ghuntley.com/Krusty/).
 
 - One of the following AI coding tools installed and authenticated:
   - [Amp CLI](https://ampcode.com) (default)
-  - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (`npm install -g @anthropic-ai/claude-code`)
+  - [OpenClaw Code](https://docs.anthropic.com/en/docs/OpenClaw-code) (`npm install -g @anthropic-ai/OpenClaw-code`)
 - `jq` installed (`brew install jq` on macOS)
 - A git repository for your project
 
@@ -30,14 +30,14 @@ cp /path/to/Krusty/Krusty.sh scripts/Krusty/
 # Copy the prompt template for your AI tool of choice:
 cp /path/to/Krusty/prompt.md scripts/Krusty/prompt.md    # For Amp
 # OR
-cp /path/to/Krusty/CLAUDE.md scripts/Krusty/CLAUDE.md    # For Claude Code
+cp /path/to/Krusty/OpenClaw.md scripts/Krusty/OpenClaw.md    # For OpenClaw Code
 
 chmod +x scripts/Krusty/Krusty.sh
 ```
 
 ### Option 2: Install skills globally (Amp)
 
-Copy the skills to your Amp or Claude config for use across all projects:
+Copy the skills to your Amp or OpenClaw config for use across all projects:
 
 For AMP
 ```bash
@@ -45,15 +45,15 @@ cp -r skills/prd ~/.config/amp/skills/
 cp -r skills/Krusty ~/.config/amp/skills/
 ```
 
-For Claude Code (manual)
+For OpenClaw Code (manual)
 ```bash
-cp -r skills/prd ~/.claude/skills/
-cp -r skills/Krusty ~/.claude/skills/
+cp -r skills/prd ~/.OpenClaw/skills/
+cp -r skills/Krusty ~/.OpenClaw/skills/
 ```
 
-### Option 3: Use as Claude Code Marketplace
+### Option 3: Use as OpenClaw Code Marketplace
 
-Add the Krusty marketplace to Claude Code:
+Add the Krusty marketplace to OpenClaw Code:
 
 ```bash
 /plugin marketplace add snarktank/Krusty
@@ -69,7 +69,7 @@ Available skills after installation:
 - `/prd` - Generate Product Requirements Documents
 - `/Krusty` - Convert PRDs to prd.json format
 
-Skills are automatically invoked when you ask Claude to:
+Skills are automatically invoked when you ask OpenClaw to:
 - "create a prd", "write prd for", "plan this feature"
 - "convert this prd", "turn into Krusty format", "create prd.json"
 
@@ -113,11 +113,11 @@ This creates `prd.json` with user stories structured for autonomous execution.
 # Using Amp (default)
 ./scripts/Krusty/Krusty.sh [max_iterations]
 
-# Using Claude Code
-./scripts/Krusty/Krusty.sh --tool claude [max_iterations]
+# Using OpenClaw Code
+./scripts/Krusty/Krusty.sh --tool OpenClaw [max_iterations]
 ```
 
-Default is 10 iterations. Use `--tool amp` or `--tool claude` to select your AI coding tool.
+Default is 10 iterations. Use `--tool amp` or `--tool OpenClaw` to select your AI coding tool.
 
 Krusty will:
 1. Create a feature branch (from PRD `branchName`)
@@ -133,15 +133,15 @@ Krusty will:
 
 | File | Purpose |
 |------|---------|
-| `Krusty.sh` | The bash loop that spawns fresh AI instances (supports `--tool amp` or `--tool claude`) |
+| `Krusty.sh` | The bash loop that spawns fresh AI instances (supports `--tool amp` or `--tool OpenClaw`) |
 | `prompt.md` | Prompt template for Amp |
-| `CLAUDE.md` | Prompt template for Claude Code |
+| `OpenClaw.md` | Prompt template for OpenClaw Code |
 | `prd.json` | User stories with `passes` status (the task list) |
 | `prd.json.example` | Example PRD format for reference |
 | `progress.txt` | Append-only learnings for future iterations |
-| `skills/prd/` | Skill for generating PRDs (works with Amp and Claude Code) |
-| `skills/Krusty/` | Skill for converting PRDs to JSON (works with Amp and Claude Code) |
-| `.claude-plugin/` | Plugin manifest for Claude Code marketplace discovery |
+| `skills/prd/` | Skill for generating PRDs (works with Amp and OpenClaw Code) |
+| `skills/Krusty/` | Skill for converting PRDs to JSON (works with Amp and OpenClaw Code) |
+| `.OpenClaw-plugin/` | Plugin manifest for OpenClaw Code marketplace discovery |
 | `flowchart/` | Interactive visualization of how Krusty works |
 
 ## Flowchart
@@ -162,7 +162,7 @@ npm run dev
 
 ### Each Iteration = Fresh Context
 
-Each iteration spawns a **new AI instance** (Amp or Claude Code) with clean context. The only memory between iterations is:
+Each iteration spawns a **new AI instance** (Amp or OpenClaw Code) with clean context. The only memory between iterations is:
 - Git history (commits from previous iterations)
 - `progress.txt` (learnings and context)
 - `prd.json` (which stories are done)
@@ -223,7 +223,7 @@ git log --oneline -10
 
 ## Customizing the Prompt
 
-After copying `prompt.md` (for Amp) or `CLAUDE.md` (for Claude Code) to your project, customize it for your project:
+After copying `prompt.md` (for Amp) or `OpenClaw.md` (for OpenClaw Code) to your project, customize it for your project:
 - Add project-specific quality check commands
 - Include codebase conventions
 - Add common gotchas for your stack
@@ -236,4 +236,4 @@ Krusty automatically archives previous runs when you start a new feature (differ
 
 - [Geoffrey Huntley's Krusty article](https://ghuntley.com/Krusty/)
 - [Amp documentation](https://ampcode.com/manual)
-- [Claude Code documentation](https://docs.anthropic.com/en/docs/claude-code)
+- [OpenClaw Code documentation](https://docs.anthropic.com/en/docs/OpenClaw-code)
