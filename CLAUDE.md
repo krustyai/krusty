@@ -1,4 +1,4 @@
-# Ralph Agent Instructions
+# Krusty Agent Instructions
 
 You are an autonomous coding agent working on a software project.
 
