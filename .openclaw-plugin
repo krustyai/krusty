@@ -1,19 +1,19 @@
 {
-  "name": "Kkrusty-marketplace",
+  "name": "Krusty-marketplace",
   "owner": {
     "name": "snarktank"
   },
   "metadata": {
-    "description": "Skills for the Kkrusty autonomous agent system - Generate PRDs and convert them to prd.json format for autonomous execution",
+    "description": "Skills for the Krusty autonomous agent system - Generate PRDs and convert them to prd.json format for autonomous execution",
     "version": "1.0.0"
   },
   "plugins": [
     {
-      "name": "Kkrusty-skills",
+      "name": "Krusty-skills",
       "source": "./",
-      "description": "PRD generation and conversion skills for the Kkrusty autonomous agent loop",
+      "description": "PRD generation and conversion skills for the Krusty autonomous agent loop",
       "version": "1.0.0",
-      "keywords": ["Kkrusty", "prd", "automation", "agent", "planning"],
+      "keywords": ["Krusty", "prd", "automation", "agent", "planning"],
       "category": "productivity",
       "skills": "./skills/"
     }
@@ -21,12 +21,12 @@
 }
 
 {
-  "name": "Kkrusty-skills",
+  "name": "Krusty-skills",
   "version": "1.0.0",
-  "description": "Skills for the Kkrusty autonomous agent system - Generate PRDs and convert them to prd.json format for autonomous execution",
+  "description": "Skills for the Krusty autonomous agent system - Generate PRDs and convert them to prd.json format for autonomous execution",
   "author": {
     "name": "snarktank"
   },
   "skills": "./skills/",
-  "keywords": ["Kkrusty", "prd", "automation", "agent", "planning", "requirements"]
+  "keywords": ["Krusty", "prd", "automation", "agent", "planning", "requirements"]
 }
