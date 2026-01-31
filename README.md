@@ -1,7 +1,5 @@
 # Krusty
 
-X: https://x.com/csdvnprt
-
 <img width="500" height="750" alt="logo" src="https://github.com/user-attachments/assets/431a7a04-aaf0-4bc3-8fcc-318ad209c9ab" />
 
 Krusty is an autonomous AI agent loop that runs AI coding tools ([Amp](https://ampcode.com) or [OpenClaw Code](https://docs.anthropic.com/en/docs/OpenClaw-code)) repeatedly until all PRD items are complete. Each iteration is a fresh instance with clean context. Memory persists via git history, `progress.txt`, and `prd.json`.
@@ -9,6 +7,8 @@ Krusty is an autonomous AI agent loop that runs AI coding tools ([Amp](https://a
 Based on [Geoffrey Huntley's Krusty pattern](https://ghuntley.com/Krusty/).
 
 [Read my in-depth article on how I use Krusty](https://x.com/ryancarson/status/2008548371712135632)
+
+X: https://x.com/csdvnprt
 
 ## Prerequisites
 
